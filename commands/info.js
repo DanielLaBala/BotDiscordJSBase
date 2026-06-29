@@ -3,7 +3,7 @@ module.exports = { // Es digamos el public de Java, para que se pueda importar d
   name: 'info',
   description: 'PLACEHOLDER DESCRIPTION',
 
-  async execute(message) {
+  async execute(message, args, client) {
     await message.reply(
         `**SERVER INFO**\n` +
         `NAME: ${message.guild.name}\n` +

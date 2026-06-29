@@ -2,12 +2,14 @@ module.exports = {
     name: "help",
     description: "PLACEHOLDER DESCRIPTION",
     
-    async execute(message) {
-        await message.reply("NOT EMPTY");
-            // `**COMMANDS:**\n` +
-            // `\`${prefix}ping\` — Descripcion\n` +
-            // `\`${prefix}info\` — Descripcion\n` +
-            // `\`${prefix}help\` — Descripcion`
+    async execute(message, args, client) {
+        let mensaje = "";
+
+        for (const comando of client.commands.values()) { // en este caso of > in al ser un Hash con clave y valor
+            mensaje += `\`${process.env.PREFIX}${comando.name}\` -- ${comando.description} \n`; 
+        }
+
+        await message.reply(mensaje);
         
     }
 }
