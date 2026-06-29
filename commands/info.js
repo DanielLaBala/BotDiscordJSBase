@@ -2,6 +2,7 @@
 module.exports = { // Es digamos el public de Java, para que se pueda importar desde otros scripts, devolvemos un objeto
   name: 'info',
   description: 'PLACEHOLDER DESCRIPTION',
+  cooldown: 2,
 
   async execute(message, args, client) {
     await message.reply(

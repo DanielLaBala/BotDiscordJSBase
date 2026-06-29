@@ -1,6 +1,7 @@
 module.exports = {
     name: "help",
     description: "PLACEHOLDER DESCRIPTION",
+    cooldown: 2,
     
     async execute(message, args, client) {
         let mensaje = "";
@@ -10,6 +11,5 @@ module.exports = {
         }
 
         await message.reply(mensaje);
-        
     }
 }
