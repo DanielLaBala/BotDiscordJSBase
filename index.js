@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Client, GatewayIntentBits, Collection } = require('discord.js'); 
+const { Client, GatewayIntentBits, Collection, Events } = require('discord.js'); 
 const fs = require('fs');
 const path = require('path');
 
@@ -23,11 +23,11 @@ for (const file of commandFiles) {
 
 const prefix = 'd';
   
-client.once('clientReady', () => { // Suscripcion al evento 'ready' se llamara lo que hay dentro cuando se emita. Once = una sola vez.
+client.once(Events.ClientReady, () => { // Suscripcion al evento 'ready' se llamara lo que hay dentro cuando se emita. Once = una sola vez.
   console.log(`Bot conectado como ${client.user.tag}`);
 });
 
-client.on('messageCreate', async (message) => { // Suscripcion al evento 'messageCreate' recibe un mensaje y todo lo de dentro es asincrono. On = siempre que pase el evento.
+client.on(Events.MessageCreate, async (message) => { // Suscripcion al evento 'messageCreate' o el enum Events.MessageCreate recibe un mensaje y todo lo de dentro es asincrono. On = siempre que pase el evento.
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
 
